@@ -8,11 +8,12 @@ export default function Header() {
         <p className="l-header__logo">
           <Link href="/" className="l-header__logo-link">
             <Image
-              src="/images/common/img_logo.png"
+              src="/images/common/icon_logo.svg"
               alt="blog ommlet"
-              width="110"
-              height="80"
+              width="170"
+              height="78"
               className="l-header__logo-img"
+              priority
             />
           </Link>
         </p>
@@ -24,12 +25,7 @@ export default function Header() {
               </Link>
             </li>
             <li className="l-header__nav-item">
-              <Link href="/works/" className="l-header__nav-link">
-                WORKS
-              </Link>
-            </li>
-            <li className="l-header__nav-item">
-              <Link href="/blog/" className="l-header__nav-link">
+              <Link href="/about/" className="l-header__nav-link">
                 ABOUT
               </Link>
             </li>

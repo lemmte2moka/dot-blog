@@ -1,0 +1,107 @@
+$breakpoints: (
+ sp: 960.98px,
+ max_sp-ssm: 348.98px,
+ max_sp-sm: 404.98px,
+ max_sp-md: 419.98px,
+ max_sp-slg: 599.98px,
+ max_sp-lg: 659.98px,
+ pc: 961px,
+ common_pc: 1200px,
+ pc-max: 2400px,
+ pc-lg: 1280px,
+ max_pc-sm: 999.98px,
+ max_pc-md: 1100.98px,
+ max_pc-lmd: 1199.98px,
+ max_pc-lg: 1279.98px,
+ max_pc-navi: 1339.98px
+  );
+
+@mixin pc() {
+  @media screen and (min-width: map-get($breakpoints, pc)) {
+    @content;
+  }
+}
+
+@mixin common_pc() {
+  @media screen and (min-width: map-get($breakpoints, common_pc)) {
+    @content;
+  }
+}
+
+@mixin pc-max() {
+  @media screen and (min-width: map-get($breakpoints, pc-max)) {
+    @content;
+  }
+}
+
+@mixin pc-lg() {
+  @media screen and (min-width: map-get($breakpoints, pc-lg)) {
+    @content;
+  }
+}
+
+@mixin max_pc-sm() {
+  @media screen and (max-width: map-get($breakpoints, max_pc-sm)) {
+    @content;
+  }
+}
+
+@mixin max_pc-md() {
+  @media screen and (max-width: map-get($breakpoints, max_pc-md)) {
+    @content;
+  }
+}
+
+@mixin max_pc-lmd() {
+  @media screen and (max-width: map-get($breakpoints, max_pc-lmd)) {
+    @content;
+  }
+}
+
+@mixin max_pc-lg() {
+  @media screen and (max-width: map-get($breakpoints, max_pc-lg)) {
+    @content;
+  }
+}
+
+@mixin max_pc-navi() {
+  @media screen and (max-width: map-get($breakpoints, max_pc-navi)) {
+    @content;
+  }
+}
+
+@mixin sp() {
+  @media screen and (max-width: map-get($breakpoints, sp)) {
+    @content;
+  }
+}
+
+@mixin max_sp-lg() {
+  @media screen and (max-width: map-get($breakpoints, max_sp-lg)) {
+    @content;
+  }
+}
+
+@mixin max_sp-slg() {
+  @media screen and (max-width: map-get($breakpoints, max_sp-slg)) {
+    @content;
+  }
+}
+
+@mixin max_sp-md() {
+  @media screen and (max-width: map-get($breakpoints, max_sp-md)) {
+    @content;
+  }
+}
+
+@mixin max_sp-sm() {
+  @media screen and (max-width: map-get($breakpoints, max_sp-sm)) {
+    @content;
+  }
+}
+
+@mixin max_sp-ssm() {
+  @media screen and (max-width: map-get($breakpoints, max_sp-ssm)) {
+    @content;
+  }
+}
