@@ -1,6 +1,6 @@
 @use './var' as *;
 
-@mixin font($size:10px, $family:$font-noto-sans, $wight:$font-regular, $color:$text-color-normal, $lineHight: $line-height-row) {
+@mixin font($size:10px, $family:$font-noto-sans, $wight:$font-regular, $color:$textColorNormal, $lineHight: $line-height-row) {
   font-size: $size;
   font-family: $family;
   font-weight: $wight;

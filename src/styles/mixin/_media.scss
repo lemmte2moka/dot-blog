@@ -1,20 +1,20 @@
 $breakpoints: (
- sp: 960.98px,
- max_sp-ssm: 348.98px,
- max_sp-sm: 404.98px,
- max_sp-md: 419.98px,
- max_sp-slg: 599.98px,
- max_sp-lg: 659.98px,
- pc: 961px,
- common_pc: 1200px,
- pc-max: 2400px,
- pc-lg: 1280px,
- max_pc-sm: 999.98px,
- max_pc-md: 1100.98px,
- max_pc-lmd: 1199.98px,
- max_pc-lg: 1279.98px,
- max_pc-navi: 1339.98px
-  );
+  sp: 960.98px,
+  max_sp-ssm: 348.98px,
+  max_sp-sm: 404.98px,
+  max_sp-md: 419.98px,
+  max_sp-slg: 599.98px,
+  max_sp-lg: 659.98px,
+  pc: 961px,
+  common_pc: 1200px,
+  pc-max: 2400px,
+  pc-lg: 1280px,
+  max_pc-sm: 999.98px,
+  max_pc-md: 1100.98px,
+  max_pc-lmd: 1199.98px,
+  max_pc-lg: 1279.98px,
+  max_pc-navi: 1339.98px
+);
 
 @mixin pc() {
   @media screen and (min-width: map-get($breakpoints, pc)) {

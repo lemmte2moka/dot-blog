@@ -1,0 +1,146 @@
+@use './../mixin' as *;
+
+.l-footer {
+  background-color: $mainColorBlue;
+  padding-top: 60px;
+  padding-bottom: 35px;
+
+  @include sp() {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  .l-footer__inner {
+    max-width: 1280px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include sp() {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .l-footer__title {
+    text-align: center;
+    @include font($size:4rem, $family:$font-oswald, $wight:$font-bold, $color:$baseColor, $lineHight: $line-height-row);
+    @include sp() {
+      text-align: left;
+      font-size: 3rem;
+    }
+  }
+
+  .l-footer__category-list {
+    display: flex;
+    justify-content: center;
+    gap: 0 55px;
+    margin-top: 40px;
+
+    @include sp() {
+      flex-direction: column;
+      gap: 20px 0;
+    }
+  }
+
+  .l-footer__category-link {
+    @include font($size:2rem, $wight:$font-medium, $color:$baseColor, $lineHight: $line-height-row);
+    position: relative;
+    transition: $common-transition;
+
+    @include sp() {
+      font-size: 1.8rem;
+    }
+
+    &::after {
+      content: '';
+      background-color: $baseColor;
+      width: 100%;
+      height: 2px;
+      transform: scale(0, 1);
+      transform-origin: center top;
+      transition: $common-transition;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    @include pc() {
+      &:hover {
+        opacity: 0.7;
+  
+        &::after {
+          transform: scale(1, 1);
+        }
+      }
+    }
+  }
+
+  .l-footer__bottom {
+    border-top: 10px solid $baseColor;
+    margin-top: 70px;
+    padding-top: 55px;
+
+    @include sp() {
+      border-top: 8px solid $baseColor;
+      margin-top: 60px;
+      padding-top: 40px;
+    }
+  }
+
+  .l-footer__nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 0 55px;
+
+    @include sp() {
+      gap: 0 40px;
+    }
+  }
+
+  .l-footer__nav-link {
+    @include font($size:2rem, $wight:$font-medium, $family:$font-oswald, $color:$baseColor, $lineHight: $line-height-row);
+    position: relative;
+    transition: $common-transition;
+
+    @include sp() {
+      font-size: 1.8rem;
+    }
+
+    &::after {
+      content: '';
+      background-color: $baseColor;
+      width: 100%;
+      height: 2px;
+      transform: scale(0, 1);
+      transform-origin: center top;
+      transition: $common-transition;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+    }
+
+    @include pc() {
+      &:hover {
+        opacity: 0.7;
+  
+        &::after {
+          transform: scale(1, 1);
+        }
+      }
+    }
+  }
+
+  .l-footer__copyright {
+    text-align: right;
+    margin-top: 50px;
+  }
+
+  .l-footer__copyright-text {
+    @include font($size:1.4rem, $wight:$font-regular, $family:$font-oswald, $color:$baseColor, $lineHight: $line-height-row);
+    @include sp() {
+      font-size: 1.2rem;
+    }
+  }
+}
