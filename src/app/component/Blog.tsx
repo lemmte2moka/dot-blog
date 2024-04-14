@@ -2,19 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import { EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react';
-import { DotButton, useDotButton } from './EmblaCarouselDotButton';
-import {
-  PrevButton,
-  NextButton,
-  usePrevNextButtons
-} from './EmblaCarouselArrowButtons';
-
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType
-}
 
 // Article型の定義
 interface Article {
@@ -55,21 +42,9 @@ interface Props {
   obj: Article[];
 }
 
-const PickUp: React.FC<Props> = ({ obj }, props) => {
+const Blog: React.FC<Props> = ({ obj }) => {
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const [pickUpItems, setPickUpItems] = useState<Article[]>([]);
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
-
-  const {
-    prevBtnDisabled,
-    nextBtnDisabled,
-    onPrevButtonClick,
-    onNextButtonClick
-  } = usePrevNextButtons(emblaApi);
 
   useEffect(() => {
     const handleResize = () => {
@@ -115,7 +90,7 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
     <section className='p-top-pickup'>
       <div className='l-container'>
         <h2 className='p-top-pickup__heading'>PICK UP</h2>
-        <div className='embla p-top-pickup__slider l-media-link' ref={emblaRef}>
+        <div className='embla p-top-pickup__slider l-media-link'>
           <ul className='p-top-pickup__list embla__container'>
             {pickUpItems.map(items => (
               <li className='p-top-pickup__item embla__slide' key={items._id}>
@@ -138,15 +113,9 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
             }
           </ul>
         </div>
-        <div className="embla__controls">
-          <div className="embla__buttons">
-            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-          </div>
-        </div>
       </div>
     </section>
   )
 };
 
-export default PickUp;
+export default Blog;

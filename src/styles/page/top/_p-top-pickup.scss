@@ -1,0 +1,13 @@
+@use './../../mixin' as *;
+
+.p-top-pickup {
+  overflow: hidden;
+
+  .p-top-pickup__heading {
+    @include font($size:4rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
+  }
+
+  .p-top-pickup__slider {
+    margin-top: 40px;
+  }
+}

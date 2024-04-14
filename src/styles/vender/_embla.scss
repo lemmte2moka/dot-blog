@@ -1,9 +1,10 @@
+@use './../mixin' as *;
 .embla {
   --slide-height: 19rem;
   --slide-spacing: 1rem;
-  --slide-size: 100%;
+  --slide-size: 345px;
   --slide-spacing-sm: 1.6rem;
-  --slide-size-sm: 50%;
+  --slide-size-sm: 280px;
   --slide-spacing-lg: 2rem;
   --slide-size-lg: calc(100% / 3);
 }
@@ -13,34 +14,15 @@
 .embla__container {
   backface-visibility: hidden;
   display: flex;
+  gap: 0 40px;
   touch-action: pan-y;
-  margin-left: calc(var(--slide-spacing) * -1);
-}
-@media (min-width: 750px) {
-  .embla__container {
-    margin-left: calc(var(--slide-spacing-sm) * -1);
-  }
-}
-@media (min-width: 1200px) {
-  .embla__container {
-    margin-left: calc(var(--slide-spacing-lg) * -1);
-  }
 }
 .embla__slide {
   min-width: 0;
   flex: 0 0 var(--slide-size);
-  padding-left: var(--slide-spacing);
-}
-@media (min-width: 750px) {
-  .embla__slide {
+
+  @include sp() {
     flex: 0 0 var(--slide-size-sm);
-    padding-left: var(--slide-spacing-sm);
-  }
-}
-@media (min-width: 1200px) {
-  .embla__slide {
-    flex: 0 0 var(--slide-size-lg);
-    padding-left: var(--slide-spacing-lg);
   }
 }
 .embla__slide__number {
@@ -54,16 +36,14 @@
   height: var(--slide-height);
 }
 .embla__controls {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: space-between;
-  gap: 1.2rem;
-  margin-top: 1.8rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 45px;
 }
 .embla__buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
+  gap: 0 30px;
   align-items: center;
 }
 .embla__button {
@@ -78,18 +58,64 @@
   border: 0;
   padding: 0;
   margin: 0;
-  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
-  width: 3.6rem;
-  height: 3.6rem;
+  box-shadow: inset 0 0 0 0.2rem $mainColorBlue;
+  width: 60px;
+  height: 60px;
   z-index: 1;
   border-radius: 50%;
   color: var(--text-body);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: $common-transition;
+
+  &:hover {
+    background-color: $mainColorBlue;
+
+    &.embla__button--prev {
+      &::after {
+        background: url(/images/common/icon_arrow_left_white.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+
+    &.embla__button--next {
+      &::after {
+        background: url(/images/common/icon_arrow_right_white.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+  }
 }
 .embla__button:disabled {
-  color: var(--detail-high-contrast);
+  opacity: 0.7;
+  pointer-events: none;
+}
+.embla__button--prev {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    background: url(/images/common/icon_arrow_left_blue.svg) no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 15px;
+    transition: $common-transition;
+  }
+}
+.embla__button--next {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    background: url(/images/common/icon_arrow_right_blue.svg) no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 15px;
+    transition: $common-transition;
+  }
 }
 .embla__button__svg {
   width: 35%;

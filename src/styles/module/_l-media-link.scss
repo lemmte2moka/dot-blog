@@ -1,0 +1,46 @@
+@use './../mixin' as *;
+
+.l-media-link {
+  .l-media-link__media {
+    border-radius: 12px;
+    box-shadow: $boxShadow;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .l-media-link__tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    width: fit-content;
+    margin-top: 20px;
+    padding: 6px 20px;
+
+    &.is-design {
+      background-color: $categoryGreen;
+    }
+
+    &.is-creative {
+      background-color: $categoryYellow;
+    }
+
+    &.is-frontend {
+      background-color: $categoryBlue;
+    }
+  }
+
+  .l-media-link__tag-text {
+    @include font($size:1.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$baseColor, $lineHight: 1);
+  }
+
+  .l-media-link__title {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    @include font($size:2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    margin-top: 15px;
+  }
+}

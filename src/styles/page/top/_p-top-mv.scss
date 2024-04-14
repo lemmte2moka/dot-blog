@@ -1,0 +1,26 @@
+@use './../../mixin' as *;
+
+.p-top-mv {
+  padding-top: 70px;
+  padding-bottom: 145px;
+
+  .p-top-mv__heading {
+    position: relative;
+    z-index: 2;
+  }
+
+  .p-top-mv__heading-main {
+    @include font($size:7rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
+  }
+
+  .p-top-mv__lead--en {
+    display: block;
+    @include font($size:2rem, $family:$font-oswald, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    margin-top: 8px;
+  }
+
+  .p-top-mv__lead--ja {
+    display: block;
+    @include font($size:3.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+  }
+}

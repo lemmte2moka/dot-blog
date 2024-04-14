@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { createClient } from 'newt-client-js';
 import { cache } from 'react';
+import Mv from './component/Mv';
 import PickUp from './component/PickUp';
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID + '',
@@ -14,6 +15,17 @@ interface Article {
   date: string;
   category: string;
   body: string;
+  _sys: {
+    createdAt: string;
+    updatedAt: string;
+    customOrder: number;
+    raw: {
+      createdAt: string;
+      updatedAt: string;
+      firstPublishedAt: string;
+      publishedAt: string;
+    }
+  };
   thumb: {
     _id: string;
     altText: string;
@@ -45,13 +57,7 @@ export default async function Top() {
   return (
     <div>
       <main className="p-top">
-        <section className='p-top-mv'>
-          <div className='l-container'>
-            <h1 className='p-top-mv__heading'>.BLOG</h1>
-            <p className='p-top-mv__lead--en'>Blog for frontend engineer.</p>
-            <p className='p-top-mv__lead--ja'>フロントエンドエンジニアのつぶやき</p>
-          </div>
-        </section>
+        <Mv />
         <PickUp obj={articles} />
       </main>
     </div>
