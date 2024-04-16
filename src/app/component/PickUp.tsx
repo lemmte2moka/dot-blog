@@ -90,13 +90,13 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
 
   useEffect(() => {
     // ピックアップアイテムをフィルタリングして設定
-    const filteredPickUpItems = obj.filter(item => item.pickup).toSorted((a:Article,b:Article) => new Date(a._sys.createdAt).getTime() - new Date(b._sys.createdAt).getTime());
+    const filteredPickUpItems = obj.filter(item => item.pickup).toSorted((a:Article,b:Article) => new Date(a._sys.createdAt).getTime() - new Date(b._sys.createdAt).getTime()).slice(0, 8);
     setPickUpItems(filteredPickUpItems);
   }, [obj]); // objが変更されたときのみ実行される
 
   // PCとSPでheightとwidthの値を変えるための条件分岐
-  const height = windowWidth >= 961 ? 400 : 180;
-  const width = windowWidth >= 961 ? 900 : 400;
+  const height = windowWidth >= 961 ? 215 : 180;
+  const width = windowWidth >= 961 ? 345 : 280;
 
   const getClassForCategory = (category: string): string => {
     switch (category) {
@@ -119,7 +119,7 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
           <ul className='p-top-pickup__list embla__container'>
             {pickUpItems.map(items => (
               <li className='p-top-pickup__item embla__slide' key={items._id}>
-                <Link href={'/blog/?page='+items._id+''} className="p-top-pickup__link">
+                <Link href={'/blog/?page='+items._id+''} className="p-top-pickup__link l-media-link__link">
                   <p className='p-top-pickup__media l-media-link__media'>
                     <Image
                       src={items.thumb.src}

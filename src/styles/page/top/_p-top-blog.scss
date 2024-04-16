@@ -1,0 +1,32 @@
+@use './../../mixin' as *;
+
+.p-top-blog {
+  padding-top: 120px;
+
+  .p-top-blog__heading {
+    &::before {
+      content: '';
+      display: inline-block;
+      background: url(/images/common/icon_blog.svg) no-repeat;
+      background-size: contain;
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      top: -65px;
+      left: -25px;
+    }
+  }
+
+  .p-top-blog__contents {
+    margin-top: 50px;
+  }
+
+  .p-top-blog__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 40px;
+  }
+  .p-top-blog__item {
+    width: calc(100% / 3 - (80px / 3));
+  }
+}

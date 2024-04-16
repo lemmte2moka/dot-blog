@@ -1,0 +1,21 @@
+@use './../mixin' as *;
+
+.l-heading {
+  display: flex;
+  align-items: flex-end;
+  gap: 0 15px;
+  border-bottom: 10px solid $textColorBold;
+  width: fit-content;
+  padding-left: 100px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.l-heading--en {
+  @include font($size:6rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: 1);
+}
+
+.l-heading--ja {
+  @include font($size:2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+}

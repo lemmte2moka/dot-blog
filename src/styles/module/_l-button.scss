@@ -1,0 +1,75 @@
+@use './../mixin' as *;
+
+.l-button {
+  margin-top: 50px;
+
+  .l-button__wrapper {
+    display: flex;
+    justify-content: center;
+    &.is-center {
+      justify-content: center;
+    }
+    &.is-left {
+      justify-content: flex-start;
+    }
+    &.is-right {
+      justify-content: flex-end;
+    }
+  }
+
+  .l-button__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    min-width: 175px;
+    min-height: 154px;
+
+    @include pc() {
+      &:hover {
+        &::before {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-color: $mainColorYellow;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: 8px;
+      left: -2px;
+      z-index: -1;
+      transition: $common-transition;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      background: url(/images/common/icon_circle_arrow.svg) no-repeat;
+      background-size: contain;
+      width: 175px;
+      height: 154px;
+      position: absolute;
+      top: 0;
+      left: 10px;
+    }
+  }
+
+  .l-button__more-text {
+    display: block;
+    @include font($size:1.4rem, $family:$font-oswald, $wight:$font-regular, $color:$textColorBold, $lineHight: 1);
+    border-bottom: 1px solid $textColorBold;
+  }
+
+  .l-button__label {
+    display: block;
+    @include font($size:1.8rem, $family:$font-oswald, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    margin-top: 5px;
+  }
+}
