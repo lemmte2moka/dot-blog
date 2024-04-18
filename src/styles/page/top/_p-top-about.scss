@@ -1,0 +1,53 @@
+@use './../../mixin' as *;
+
+.p-top-about {
+  background-color: $mainColorGreen;
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  .p-top-about__contents {
+    display: flex;
+    gap: 0 60px;
+    margin-top: 50px;
+  }
+
+  .p-top-about__description {
+    width: calc(50% - 60px);
+  }
+
+  .p-top-about__text {
+    @include font($size:2.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+  }
+
+  .p-top-about__images {
+    background-color: $baseColor;
+    border-radius: 50%;
+    width: 50%;
+    aspect-ratio: 1/1;
+    position: relative;
+  }
+
+  .p-top-about__media {
+    position: absolute;
+
+    &.is-first {
+      top: -100px;
+      left: -40px;
+    }
+
+    &.is-second {
+      top: -30px;
+      right: -70px;
+    }
+
+    &.is-third {
+      bottom: -70px;
+      right: -20px;
+    }
+
+    &.is-fourth {
+      bottom: 20px;
+      left: -60px;
+    }
+  }
+}

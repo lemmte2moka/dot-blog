@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import Button from '../../component/Button';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -115,6 +116,7 @@ const Blog: React.FC<Props> = ({ obj }) => {
             ))
             }
           </ul>
+          <Button {...{href: '/blog/', text: 'BLOG', position: 'center'}} />
         </div>
       </div>
     </section>

@@ -4,7 +4,6 @@ import { cache } from 'react';
 import Mv from './component/Mv';
 import PickUp from './component/PickUp';
 import Blog from './component/Blog';
-import Button from '../component/Button';
 import About from './component/About';
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID + '',
@@ -63,7 +62,6 @@ export default async function Top() {
         <Mv />
         <PickUp obj={articles} />
         <Blog obj={articles} />
-        <Button {...{href: '/blog/', text: 'BLOG', position: 'center'}} />
         <About />
       </main>
     </div>
