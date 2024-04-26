@@ -3,6 +3,12 @@
 .p-top-blog {
   padding-top: 120px;
   padding-bottom: 108px;
+  position: relative;
+
+  @include sp() {
+    padding-top: 80px;
+    padding-bottom: 68px;
+  }
 
   .p-top-blog__heading {
     &::before {
@@ -15,19 +21,47 @@
       position: absolute;
       top: -65px;
       left: -25px;
+
+      @include sp() {
+        width: 120px;
+        height: 120px;
+        top: -45px;
+        left: -30px;
+      }
     }
   }
 
   .p-top-blog__contents {
     margin-top: 50px;
+
+    @include sp() {
+      margin-top: 40px;
+    }
   }
 
   .p-top-blog__list {
     display: flex;
     flex-wrap: wrap;
     gap: 50px 40px;
+
+    @include sp() {
+      gap: 40px 20px;
+    }
   }
   .p-top-blog__item {
     width: calc(100% / 3 - (80px / 3));
+
+    @include sp() {
+      width: calc(100% / 2 - (20px / 2));
+
+      &:nth-child(n + 7) {
+        display: none;
+      }
+    }
+  }
+  .p-top-blog__tag {
+    @include sp() {
+      font-size: 1.1rem;
+    }
   }
 }

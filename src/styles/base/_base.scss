@@ -30,3 +30,17 @@ img {
 main {
   min-height: 100vh;
 }
+
+.is-pc {
+  display: block;
+  @include sp() {
+    display: none;
+  }
+}
+
+.is-sp {
+  display: none !important;
+  @include sp() {
+    display: block !important;
+  }
+}

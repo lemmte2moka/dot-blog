@@ -4,11 +4,12 @@ interface ButtonLink {
   href: string;
   text: string;
   position: string;
+  specialClass: string;
 }
 
-const Button: React.FC<ButtonLink> = ({ href, text, position }) => {
+const Button: React.FC<ButtonLink> = ({ href, text, position, specialClass }) => {
   return (
-    <div className="l-button">
+    <div className={`l-button ${specialClass}`}>
       <p className={`l-button__wrapper is-${position}`}>
         <Link href={href} className="l-button__link">
           <span className="l-button__more-text">MORE</span>

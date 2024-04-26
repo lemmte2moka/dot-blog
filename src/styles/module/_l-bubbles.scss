@@ -1,0 +1,51 @@
+@use './../mixin' as *;
+
+.l-bubble {
+  width: 100%;
+  height: 1360px;
+  position: absolute;
+  overflow: hidden;
+
+  .l-bubble__main-wrapper {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .l-bubble__main {
+    border-radius: 50%;
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 0;
+    right: -400px;
+    z-index: -1;
+
+    &.is-blue {
+      background-color: $mainColorBlue;
+    }
+
+    &.is-light-blue {
+      background-color: $mainColorBlue;
+      opacity: 0.4;
+    }
+  }
+
+  .l-bubble__sub {
+    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    bottom: 0;
+    left: -90px;
+    z-index: -1;
+
+    &.is-blue {
+      background-color: $mainColorBlue;
+    }
+    &.is-light-blue {
+      background-color: $mainColorBlue;
+      opacity: 0.4;
+    }
+  }
+}

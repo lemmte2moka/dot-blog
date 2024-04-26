@@ -5,49 +5,128 @@
   padding-top: 80px;
   padding-bottom: 120px;
 
+  @include sp() {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .p-top-about__heading {
+    &::before {
+      content: '';
+      display: inline-block;
+      background: url(/images/common/icon_programming.svg) no-repeat;
+      background-size: contain;
+      width: 130px;
+      height: 130px;
+      position: absolute;
+      top: -47px;
+      left: -15px;
+
+      @include sp() {
+        width: 90px;
+        height: 90px;
+        top: -30px;
+        left: -14px;
+      }
+    }
+  }
+
   .p-top-about__contents {
     display: flex;
     gap: 0 60px;
     margin-top: 50px;
+
+    @include sp() {
+      flex-direction: column;
+      gap: 50px 0;
+      margin-top: 40px;
+    }
   }
 
   .p-top-about__description {
     width: calc(50% - 60px);
+
+    @include sp() {
+      width: 100%;
+    }
   }
 
   .p-top-about__text {
-    @include font($size:2.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    @include font($size:2.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-mid);
+    @include sp() {
+      font-size: 1.7rem;
+    }
+  }
+
+  .p-top-about__button {
+    .l-button__wrapper {
+      @include sp() {
+        justify-content: center;
+      }
+    }
   }
 
   .p-top-about__images {
     background-color: $baseColor;
     border-radius: 50%;
     width: 50%;
+    height: auto;
     aspect-ratio: 1/1;
     position: relative;
+
+    @include sp() {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .p-top-about__media {
     position: absolute;
 
+    @include sp() {
+      width: 200px;
+      height: 200px;
+    }
+
     &.is-first {
       top: -100px;
       left: -40px;
+
+      @include sp() {
+        top: -60px;
+        left: -40px;
+      }
     }
 
     &.is-second {
       top: -30px;
       right: -70px;
+
+      @include sp() {
+        top: -20px;
+        right: -40px;
+      }
     }
 
     &.is-third {
       bottom: -70px;
       right: -20px;
+
+      @include sp() {
+        bottom: -50px;
+        right: -10px;
+      }
     }
 
     &.is-fourth {
       bottom: 20px;
       left: -60px;
+
+      @include sp() {
+        bottom: 0;
+        left: -70px;
+      }
     }
   }
 }

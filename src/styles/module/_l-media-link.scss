@@ -45,10 +45,17 @@
     &.is-frontend {
       background-color: $categoryBlue;
     }
+
+    @include sp() {
+      padding: 6px 12px;
+    }
   }
 
   .l-media-link__tag-text {
     @include font($size:1.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$baseColor, $lineHight: 1);
+    @include sp() {
+      font-size: 1.1rem;
+    }
   }
 
   .l-media-link__title {
@@ -59,5 +66,9 @@
     -webkit-line-clamp: 2;
     @include font($size:2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
     margin-top: 15px;
+
+    @include sp() {
+      font-size: 1.7rem;
+    }
   }
 }

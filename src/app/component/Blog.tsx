@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Button from '../../component/Button';
+import Bubble from '../../component/Bubble';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -74,6 +75,8 @@ const Blog: React.FC<Props> = ({ obj }) => {
   const height = windowWidth >= 961 ? 215 : 180;
   const width = windowWidth >= 961 ? 345 : 280;
 
+  const setBubble = {mainColor:'light-blue',subColor:'blue',topPc:'',topSp:'',bottomPc:'0',bottomSp:'0'}
+
   const getClassForCategory = (category: string): string => {
     switch (category) {
       case 'デザイン':
@@ -116,9 +119,10 @@ const Blog: React.FC<Props> = ({ obj }) => {
             ))
             }
           </ul>
-          <Button {...{href: '/blog/', text: 'BLOG', position: 'center'}} />
+          <Button {...{href: '/blog/', text: 'BLOG', position: 'center', specialClass: '' }} />
         </div>
       </div>
+      <Bubble {...setBubble} />
     </section>
   )
 };
