@@ -75,7 +75,7 @@ const Blog: React.FC<Props> = ({ obj }) => {
   const height = windowWidth >= 961 ? 215 : 180;
   const width = windowWidth >= 961 ? 345 : 280;
 
-  const setBubble = {mainColor:'light-blue',subColor:'blue',topPc:'',topSp:'',bottomPc:'0',bottomSp:'0'}
+  const setBubble = {mainColor:'light-blue',subColor:'blue',topPc:'',topSp:'',bottomPc:'-340',bottomSp:'0'}
 
   const getClassForCategory = (category: string): string => {
     switch (category) {

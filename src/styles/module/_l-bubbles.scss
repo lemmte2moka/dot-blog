@@ -5,6 +5,7 @@
   height: 1360px;
   position: absolute;
   overflow: hidden;
+  z-index: -1;
 
   .l-bubble__main-wrapper {
     width: 100%;

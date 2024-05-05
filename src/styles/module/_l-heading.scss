@@ -32,3 +32,7 @@
     font-size: 1.6rem;
   }
 }
+
+.l-heading--h1 {
+  @include font($size:6rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: 1);
+}

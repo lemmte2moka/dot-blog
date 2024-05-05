@@ -4,10 +4,12 @@
   .l-media-link__link {
     transition: $common-transition;
 
-    &:hover {
-      opacity: 0.7;
-      .l-media-link__img {
-        transform: scale(1.1);
+    @include pc() {
+      &:hover {
+        .l-media-link__img {
+          opacity: 0.7;
+          transform: scale(1.1);
+        }
       }
     }
   }
@@ -15,6 +17,7 @@
   .l-media-link__media {
     border-radius: 12px;
     box-shadow: $boxShadow;
+    background-color: $baseColor;
     width: 100%;
     overflow: hidden;
   }

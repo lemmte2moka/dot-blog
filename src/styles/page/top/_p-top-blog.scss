@@ -32,6 +32,8 @@
   }
 
   .p-top-blog__contents {
+    position: relative;
+    z-index: 1;
     margin-top: 50px;
 
     @include sp() {
