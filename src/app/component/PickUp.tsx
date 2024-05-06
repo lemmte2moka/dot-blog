@@ -119,7 +119,7 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
           <ul className='p-top-pickup__list embla__container'>
             {pickUpItems.map(items => (
               <li className='p-top-pickup__item embla__slide' key={items._id}>
-                <Link href={'/blog/?page='+items._id+''} className="p-top-pickup__link l-media-link__link">
+                <Link href={'/blog/page/?id='+items._id+''} className="p-top-pickup__link l-media-link__link">
                   <p className='p-top-pickup__media l-media-link__media'>
                     <Image
                       src={items.thumb.src}

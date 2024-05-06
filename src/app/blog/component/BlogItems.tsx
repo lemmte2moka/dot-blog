@@ -12,6 +12,7 @@ interface Article {
   date: string;
   category: string;
   body: string;
+  slug: string;
   _sys: {
     createdAt: string;
     updatedAt: string;
@@ -164,7 +165,7 @@ const BlogItems: React.FC<Props> = ({ obj }) => {
           <ul className='p-top-blog__list'>
             {displayedItems.map(items => (
               <li className='p-top-blog__item' key={items._id}>
-                <Link href={'/blog/?page='+items._id+''} className="p-top-blog__link l-media-link__link">
+                <Link href={`/blog/${items.slug}/`} className="p-top-blog__link l-media-link__link">
                   <p className='p-top-blog__media l-media-link__media'>
                     <Image
                       src={items.thumb.src}
