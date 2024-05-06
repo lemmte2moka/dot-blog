@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { createClient } from 'newt-client-js';
 import { cache } from 'react';
+import BlogItems from './component/BlogItems';
 import Mv from '../../component/Mv';
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID + '',
@@ -56,6 +57,7 @@ export default async function Blog() {
     <div>
       <main className="p-blog">
         <Mv title={'BLOG'} />
+        <BlogItems obj={articles} />
       </main>
     </div>
   )

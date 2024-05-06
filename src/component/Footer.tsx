@@ -9,13 +9,13 @@ export default function Footer() {
           <p className="l-footer__title">BLOG CATEGORY</p>
             <ul className="l-footer__category-list">
               <li className="l-footer__category-item">
-                <Link href="#" className="l-footer__category-link">フロントエンド</Link>
+                <Link href="/blog/?category=frontend" className="l-footer__category-link">フロントエンド</Link>
               </li>
               <li className="l-footer__category-item">
-                <Link href="#" className="l-footer__category-link">デザイン</Link>
+                <Link href="/blog/?category=design" className="l-footer__category-link">デザイン</Link>
               </li>
               <li className="l-footer__category-item">
-                <Link href="#" className="l-footer__category-link">クリエイティブコーダー</Link>
+                <Link href="/blog/?category=creativecoder" className="l-footer__category-link">クリエイティブコーダー</Link>
               </li>
             </ul>
         </div>

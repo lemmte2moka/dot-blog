@@ -1,6 +1,12 @@
 @use './../mixin' as *;
 
 .l-media-link {
+  margin-top: 50px;
+
+  @include sp() {
+    margin-top: 40px;
+  }
+  
   .l-media-link__link {
     transition: $common-transition;
 

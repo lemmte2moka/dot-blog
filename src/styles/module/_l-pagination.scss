@@ -1,0 +1,44 @@
+@use './../mixin' as *;
+
+.l-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0 20px;
+  margin-top: 50px;
+
+  .l-pagination__page-item {
+    &.is-disabled {
+      .l-pagination__page-link {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+    }
+
+    &.is-active {
+      .l-pagination__page-link {
+        pointer-events: none;
+        background-color: $mainColorBlue;
+        color: $baseColor;
+      }
+    }
+  }
+
+  .l-pagination__page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font($size:1.4rem, $family:$font-oswald, $wight:$font-medium, $color:$mainColorBlue, $lineHight: 1);
+    border: 1px solid $mainColorBlue;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: $common-transition;
+
+    @include pc() {
+      &:hover {
+        background-color: $mainColorBlue;
+        color: $baseColor;
+      }
+    }
+  }
+}

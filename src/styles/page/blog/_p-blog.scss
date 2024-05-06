@@ -1,0 +1,59 @@
+@use './../../mixin' as *;
+
+.p-blog {
+  .p-blog__button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px 30px;
+  }
+
+  .p-blog__button {
+    @include font($size:1.8rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    position: relative;
+    transition: $common-transition;
+
+    &.is-active {
+      color: $mainColorYellow;
+      &::after {
+        transform: scale(1, 1);
+        pointer-events: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      background-color: $notesColorGray;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    &::after {
+      content: '';
+      background-color: $mainColorYellow;
+      width: 100%;
+      height: 2px;
+      transform: scale(0, 1);
+      transform-origin: center top;
+      transition: $common-transition;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      z-index: 1;
+    }
+    @include pc() {
+      &:hover {
+        color: $mainColorYellow;
+  
+        &::after {
+          transform: scale(1, 1);
+        }
+      }
+    }
+    @include sp() {
+      font-size: 1.6rem;
+    }
+  }
+}
