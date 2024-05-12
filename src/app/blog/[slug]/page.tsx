@@ -1,6 +1,9 @@
-import Image from 'next/image';
-import type { Metadata } from 'next'
 import { getArticles, getArticleBySlug } from '../../../libs/newt';
+import type { Metadata } from 'next';
+import Image from "next/image";
+import Link from "next/link";
+import Button from '../../../component/Button';
+import RelationItems from './component/RelationItems';
 
 type Props = {
   params: {
@@ -9,7 +12,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const articles = await getArticles();
+  const articles = await getArticles()
   return articles.map((article) => ({
     slug: article.slug,
   }))
@@ -17,7 +20,7 @@ export async function generateStaticParams() {
 export const dynamicParams = false
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = params
   const article = await getArticleBySlug(slug)
 
   return {
@@ -26,17 +29,67 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-
-export default async function Blog({ params }: Props)  {
+export default async function Article({ params }: Props) {
   const { slug } = params
-  const article = await getArticleBySlug(slug)
+  const article = await getArticleBySlug(slug);
+  const relationArticle = await getArticles();
+  // console.log(article)
   if (!article) return
 
+  const date: Date = new Date(article._sys.createdAt);
+  const deteString:string = date.toLocaleDateString('ja-JP', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  const getClassForCategory = (category: string): string => {
+    switch (category) {
+      case 'デザイン':
+        return 'is-design';
+      case 'クリエイティブコーダー':
+        return 'is-creative';
+      case 'フロントエンド':
+        return 'is-frontend';
+      default:
+        return '';
+    }
+  }
+  
   return (
-    <div>
-      <main className="p-blog">
-        <h1>{article.title}</h1>
-      </main>
-    </div>
+    <main className="p-article">
+      <p className={`p-article__thumbnail ${getClassForCategory(article.category)}`}>
+        <Image
+          src={article.thumb.src}
+          alt={article.thumb.altText}
+          width="900"
+          height="563"
+          className="p-article__thumbnail-img"
+          priority
+        />
+      </p>
+      <div className='l-container--sm'>
+        <h1 className='p-article__title'>{article.title}</h1>
+        <div className='p-article__addition'>
+          <div className='p-article__date-tag'>
+            <p className='p-article__date'>{deteString}</p>
+            <p className={`p-article__tag ${getClassForCategory(article.category)}`}><span className='p-article__tag-text'>{article.category}</span></p>
+          </div>
+          <ul className='p-article__sns-list'>
+            {article.sns.map(items => (
+              <li className='p-article__sns-item' key={article.sns[0]._id} dangerouslySetInnerHTML={{ __html: article.sns[0].snsLink }}></li>
+              )
+            )}
+          </ul>
+        </div>
+        <div className='p-article__body'>
+          <div className='p-article__contents' dangerouslySetInnerHTML={{ __html: article.body }} />
+          <Button {...{href: '/blog/', text: 'BLOG', position: 'center', specialClass: '' }} />
+        </div>
+      </div>
+      <div className='p-article__relation'>
+        <RelationItems obj={relationArticle} category={article.category} />
+      </div>
+    </main>
   )
 }

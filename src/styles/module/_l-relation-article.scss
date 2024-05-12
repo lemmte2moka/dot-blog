@@ -1,0 +1,20 @@
+@use './../mixin' as *;
+
+.l-relation-article {
+  padding-bottom: 120px;
+
+  .l-relation-article__heading {
+    border-top: 4px solid $textColorBold;
+    padding-top: 30px;
+    @include font($size:2.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+  }
+
+  .l-relation-article__list {
+    display: flex;
+    gap: 0 40px;
+  }
+
+  .l-relation-article__item {
+    width: calc(100% / 3 - (80px / 3));
+  }
+}

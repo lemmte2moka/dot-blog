@@ -6,6 +6,10 @@ const client = createClient({
   token: process.env.NEWT_CDN_API_TOKEN + '',
   apiType: 'cdn',
 });
+interface SnsItem {
+  _id: string;
+  snsLink: string;
+}
 interface Article {
   _id: string;
   pickup: boolean;
@@ -38,13 +42,13 @@ interface Article {
     title: string;
     width: number;
   };
-  sns: object[]; // 必要に応じて修正
+  sns: SnsItem[]; // 必要に応じて修正
 }
 
 export const getArticles = cache(async () => {
   const { items } = await client.getContents<Article>({
     appUid: 'blog',
-    modelUid: 'post',
+    modelUid: 'blog',
     query: {
       select: ['_id', 'title', 'thumb', 'category', 'pickup', '_sys', 'sns', 'slug', 'body'],
     },
@@ -55,8 +59,9 @@ export const getArticles = cache(async () => {
 export const getArticleBySlug = cache(async (slug: string) => {
   const article = await client.getFirstContent<Article>({
     appUid: 'blog',
-    modelUid: 'post',
+    modelUid: 'blog',
     query: {
+      slug,
       select: ['_id', 'title', 'thumb', 'category', 'pickup', '_sys', 'sns', 'slug', 'body'],
     },
   })
