@@ -75,7 +75,7 @@ const Blog: React.FC<Props> = ({ obj }) => {
   const height = windowWidth >= 961 ? 215 : 180;
   const width = windowWidth >= 961 ? 345 : 280;
 
-  const setBubble = {mainColor:'light-blue',subColor:'blue',topPc:'',topSp:'',bottomPc:'-340',bottomSp:'0'}
+  const setBubble = {mainColor:'light-blue',subColor:'blue',topPc:'',topSp:'',bottomPc:'-340',bottomSp:'-160'}
 
   const getClassForCategory = (category: string): string => {
     switch (category) {
@@ -119,7 +119,7 @@ const Blog: React.FC<Props> = ({ obj }) => {
             ))
             }
           </ul>
-          <Button {...{href: '/blog/', text: 'BLOG', position: 'center', specialClass: '' }} />
+          <Button {...{href: '/blog/', subText:'MORE', text: 'BLOG', position: 'center', specialClass: '' }} />
         </div>
       </div>
       <Bubble {...setBubble} />

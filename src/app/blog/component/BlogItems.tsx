@@ -49,8 +49,8 @@ const BlogItems: React.FC<Props> = ({ obj }) => {
   const [Items, setItems] = useState<Article[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const itemsPerPage = 9;
   const targetAreaRef = useRef<HTMLDivElement>(null);
+  const itemsPerPage = windowWidth >= 961 ? 9 : 6;
 
   // URLパラメータに基づいて初期カテゴリを設定する
   useEffect(() => {
@@ -162,7 +162,7 @@ const BlogItems: React.FC<Props> = ({ obj }) => {
           <button onClick={() => handleCategoryClick('クリエイティブコーダー')} className={`p-blog__button ${selectedCategory === 'クリエイティブコーダー' ? 'is-active' : ''}`}>クリエイティブコーダー</button>
         </div>
         <div className='p-top-blog__contents l-media-link'>
-          <ul className='p-top-blog__list'>
+          <ul className='p-top-blog__list is-full'>
             {displayedItems.map(items => (
               <li className='p-top-blog__item' key={items._id}>
                 <Link href={`/blog/${items.slug}/`} className="p-top-blog__link l-media-link__link">

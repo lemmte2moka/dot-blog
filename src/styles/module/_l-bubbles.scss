@@ -7,6 +7,11 @@
   overflow: hidden;
   z-index: -1;
 
+  @include sp() {
+    width: 100%;
+    height: 760px;
+  }
+
   .l-bubble__main-wrapper {
     width: 100%;
     height: 100%;
@@ -21,6 +26,13 @@
     top: 0;
     right: -400px;
     z-index: -1;
+
+    @include sp() {
+      width: 450px;
+      height: 450px;
+      right: -200px;
+      top: 0;
+    }
 
     &.is-blue {
       background-color: $mainColorBlue;
@@ -40,6 +52,12 @@
     bottom: 0;
     left: -90px;
     z-index: -1;
+
+    @include sp() {
+      width: 300px;
+      height: 300px;
+      left: -110px;
+    }
 
     &.is-blue {
       background-color: $mainColorBlue;

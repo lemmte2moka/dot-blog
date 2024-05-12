@@ -84,7 +84,7 @@ export default async function Article({ params }: Props) {
         </div>
         <div className='p-article__body'>
           <div className='p-article__contents' dangerouslySetInnerHTML={{ __html: article.body }} />
-          <Button {...{href: '/blog/', text: 'BLOG', position: 'center', specialClass: '' }} />
+          <Button {...{href: '/blog/', subText:'BACK', text: 'BLOG', position: 'center', specialClass: '' }} />
         </div>
       </div>
       <div className='p-article__relation'>

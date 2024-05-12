@@ -3,18 +3,35 @@
 .l-relation-article {
   padding-bottom: 120px;
 
+  @include sp() {
+    padding-bottom: 80px;
+  }
+
   .l-relation-article__heading {
     border-top: 4px solid $textColorBold;
     padding-top: 30px;
     @include font($size:2.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+
+    @include sp() {
+      font-size: 1.9rem;
+    }
   }
 
   .l-relation-article__list {
     display: flex;
     gap: 0 40px;
+
+    @include sp() {
+      flex-direction: column;
+      gap: 30px 0;
+    }
   }
 
   .l-relation-article__item {
     width: calc(100% / 3 - (80px / 3));
+
+    @include sp() {
+      width: 100%;
+    }
   }
 }

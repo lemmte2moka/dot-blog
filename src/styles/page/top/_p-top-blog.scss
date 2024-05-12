@@ -49,6 +49,14 @@
     @include sp() {
       gap: 40px 20px;
     }
+
+    &.is-full {
+      @include sp() {
+        .p-top-blog__item {
+          display: block;
+        }
+      }
+    }
   }
   .p-top-blog__item {
     width: calc(100% / 3 - (80px / 3));

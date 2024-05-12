@@ -13,7 +13,7 @@ const About = () => {
         <div className="p-top-about__contents">
           <div className="p-top-about__description">
             <p className="p-top-about__text">サッカー観戦とキャンプと服とゲームが好きなWEBのエンジニアです。<br />たまにフロントエンドについて書いたり、趣味について書いたりしてます。</p>
-            <Button {...{href: '/about/', text: 'ABOUT', position: 'left', specialClass: 'p-top-about__button' }} />
+            <Button {...{href: '/about/', subText:'MORE', text: 'ABOUT', position: 'left', specialClass: 'p-top-about__button' }} />
           </div>
           <div className="p-top-about__images">
             <p className="p-top-about__media is-first">

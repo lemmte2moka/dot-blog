@@ -4,13 +4,19 @@
   .p-blog__button-wrapper {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px 30px;
   }
 
   .p-blog__button {
+    text-align: center;
     @include font($size:1.8rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
     position: relative;
     transition: $common-transition;
+
+    @include sp() {
+      width: calc(100% / 2 - (30px / 2));
+    }
 
     &.is-active {
       color: $mainColorYellow;

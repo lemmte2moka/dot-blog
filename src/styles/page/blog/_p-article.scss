@@ -7,6 +7,10 @@
     width: 100%;
     height: 563px;
 
+    @include sp() {
+      height: 300px;
+    }
+
     &.is-design {
       background-color: $categoryGreen;
     }
@@ -28,6 +32,11 @@
   .p-article__title {
     @include font($size:4rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
     padding-top: 50px;
+
+    @include sp() {
+      font-size: 2.8rem;
+      padding-top: 30px;
+    }
   }
 
   .p-article__addition {
@@ -90,6 +99,10 @@
 
   .p-article__body {
     padding-bottom: 100px;
+
+    @include sp() {
+      padding-bottom: 60px;
+    }
   }
 
   .p-article__contents {
@@ -103,6 +116,11 @@
       padding-bottom: 8px;
       position: relative;
 
+      @include sp() {
+        font-size: 2.6rem;
+        margin-top: 40px;
+      }
+
       &::after {
         content: '';
         display: inline-block;
@@ -112,10 +130,18 @@
         position: absolute;
         bottom: 0;
         left: 0;
+
+        @include sp() {
+          width: 40px;
+        }
       }
 
       & + * {
         margin-top: 35px;
+
+        @include sp() {
+          margin-top: 30px;
+        }
       }
     }
 
@@ -124,6 +150,12 @@
       margin-top: 40px;
       padding-left: 10px;
       position: relative;
+
+      @include sp() {
+        font-size: 2.2rem;
+        margin-top: 30px;
+      }
+
 
       &::after {
         content: '';
@@ -138,6 +170,10 @@
 
       & + * {
         margin-top: 30px;
+
+        @include sp() {
+          margin-top: 25px;
+        }
       }
     }
 
@@ -146,6 +182,11 @@
       margin-top: 30px;
       padding-bottom: 5px;
       position: relative;
+
+      @include sp() {
+        font-size: 2rem;
+        margin-top: 25px;
+      }
 
       &::after {
         content: '';
@@ -160,6 +201,10 @@
 
       & + * {
         margin-top: 25px;
+
+        @include sp() {
+          margin-top: 20px;
+        }
       }
     }
 
@@ -167,14 +212,28 @@
       @include font($size:1.9rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: 1.4);
       margin-top: 30px;
 
+      @include sp() {
+        font-size: 1.7rem;
+        margin-top: 25px;
+      }
+
       & + * {
         margin-top: 25px;
+
+        @include sp() {
+          margin-top: 20px;
+        }
       }
     }
 
     p {
       @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-regular, $color:$textColorNormal, $lineHight: $line-height-mid);
       margin-top: 30px;
+
+      @include sp() {
+        font-size: 1.5rem;
+        margin-top: 25px;
+      }
 
       &.ql-align-center {
         text-align: center;
@@ -196,10 +255,18 @@
     ul {
       margin-top: 30px;
 
+      @include sp() {
+        margin-top: 25px;
+      }
+
       li {
         @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-regular, $color:$textColorNormal, $lineHight: $line-height-mid);
         padding-left: 15px;
         position: relative;
+
+        @include sp() {
+          font-size: 1.5rem;
+        }
 
         &::before {
           content: '';
@@ -211,9 +278,17 @@
           position: absolute;
           top: 9px;
           left: 0;
+
+          @include sp() {
+            top: 8px;
+          }
         }
         & + li {
           margin-top: 20px;
+
+          @include sp() {
+            margin-top: 15px;
+          }
         }
       }
     }
@@ -222,10 +297,18 @@
       counter-reset: item;
       margin-top: 30px;
 
+      @include sp() {
+        margin-top: 25px;
+      }
+
       li {
         @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-regular, $color:$textColorNormal, $lineHight: $line-height-mid);
         padding-left: 24px;
         position: relative;
+
+        @include sp() {
+          font-size: 1.5rem;
+        }
 
         &::before {
           counter-increment: item;
@@ -236,10 +319,18 @@
           position: absolute;
           top: -1px;
           left: 0;
+
+          @include sp() {
+            top: -2px;
+          }
         }
 
         & + li {
           margin-top: 20px;
+
+          @include sp() {
+            margin-top: 15px;
+          }
         }
       }
     }

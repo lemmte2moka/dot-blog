@@ -9,5 +9,11 @@
     align-items: center;
     padding-top: 80px;
     padding-bottom: 60px;
+
+    @include sp() {
+      justify-content: flex-start;
+      padding-top: 50px;
+      padding-bottom: 0;
+    }
   }
 }

@@ -3,7 +3,7 @@ interface Title {
   title: string;
 }
 const Mv: React.FC<Title> = ({ title }) => {
-  const setBubble = {mainColor:'blue',subColor:'light-blue',topPc:'-450',topSp:'-110',bottomPc:'',bottomSp:''}
+  const setBubble = {mainColor:'blue',subColor:'light-blue',topPc:'-450',topSp:'-200',bottomPc:'',bottomSp:''}
   return (
     <section className='l-mv'>
       <Bubble {...setBubble} />

@@ -1,6 +1,6 @@
 import Bubble from '../../component/Bubble';
 export default async function Mv() {
-  const setBubble = {mainColor:'blue',subColor:'light-blue',topPc:'-450',topSp:'-110',bottomPc:'',bottomSp:''}
+  const setBubble = {mainColor:'blue',subColor:'light-blue',topPc:'-450',topSp:'-270',bottomPc:'',bottomSp:''}
   return (
     <section className='p-top-mv'>
       <Bubble {...setBubble} />
