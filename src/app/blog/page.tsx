@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { createClient } from 'newt-client-js';
 import { cache } from 'react';
-import BlogItems from './component/BlogItems';
-import Mv from '../../component/Mv';
-import { getArticles } from '../../libs/newt';
+import BlogItems from '../../component/pages/blog/BlogItems';
+import Mv from '../../component/templates/Mv';
+import { getArticles } from '../../hooks/newt';
 
 export default async function Blog() {
   const articles = await getArticles();

@@ -1,8 +1,8 @@
-import Mv from './component/Mv';
-import PickUp from './component/PickUp';
-import Blog from './component/Blog';
-import About from './component/About';
-import { getArticles } from '../libs/newt';
+import Mv from '../component/pages/top/Mv';
+import PickUp from '../component/pages/top/PickUp';
+import Blog from '../component/pages/top/Blog';
+import About from '../component/pages/top/About';
+import { getArticles } from '../hooks/newt';
 
 export default async function Top() {
   const articles = await getArticles();

@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import Button from '../../component/Button';
-import Bubble from '../../component/Bubble';
+import Button from '../../atoms/Button';
+import Bubble from '../../templates/Bubble';
 import Image from "next/image";
 import Link from "next/link";
 

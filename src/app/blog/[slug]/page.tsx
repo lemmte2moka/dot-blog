@@ -1,9 +1,9 @@
-import { getArticles, getArticleBySlug } from '../../../libs/newt';
+import { getArticles, getArticleBySlug } from '../../../hooks/newt';
 import type { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
-import Button from '../../../component/Button';
-import RelationItems from './component/RelationItems';
+import Button from '../../../component/atoms/Button';
+import RelationItems from '../../../component/pages/blog/RelationItems';
 
 type Props = {
   params: {

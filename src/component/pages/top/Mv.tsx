@@ -1,4 +1,4 @@
-import Bubble from '../../component/Bubble';
+import Bubble from '../../templates/Bubble';
 export default async function Mv() {
   const setBubble = {mainColor:'blue',subColor:'light-blue',topPc:'-450',topSp:'-270',bottomPc:'',bottomSp:''}
   return (

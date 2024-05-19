@@ -1,4 +1,4 @@
-import Bubble from '../component/Bubble';
+import Bubble from './Bubble';
 interface Title {
   title: string;
 }
