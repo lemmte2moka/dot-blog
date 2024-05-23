@@ -1,0 +1,41 @@
+@use './../mixin' as *;
+
+.l-tag {
+  display: grid;
+  place-content: center;
+  border-radius: 16px;
+  width: fit-content;
+  min-width: 60px;
+  padding: 6px 12px;
+
+  &.is-blue {
+    background-color: $categoryBlue;
+  }
+
+  &.is-brown {
+    background-color: $categoryBrown;
+  }
+
+  &.is-green {
+    background-color: $categoryGreen;
+  }
+
+  &.is-purple {
+    background-color: $categoryPurple;
+  }
+
+  &.is-yellow {
+    background-color: $categoryYellow;
+  }
+
+  @include sp() {
+    padding: 6px 8px;
+  }
+
+  .l-tag__text {
+    @include font($size:1.2rem, $family:$font-noto-sans, $wight:$font-medium, $color:$baseColor, $lineHight: 1);
+    @include sp() {
+      font-size: 1.1rem;
+    }
+  }
+}

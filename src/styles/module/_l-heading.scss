@@ -36,3 +36,11 @@
 .l-heading--h1 {
   @include font($size:6rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: 1);
 }
+
+.l-heading--h2 {
+  @include font($size:4rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+
+  & + * {
+    margin-top: 50px;
+  }
+}

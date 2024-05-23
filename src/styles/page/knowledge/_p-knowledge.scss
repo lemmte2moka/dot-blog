@@ -1,0 +1,59 @@
+@use './../../mixin' as *;
+
+.p-knowledge {
+  .p-knowledge__table {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .p-knowledge__t-title {
+    text-align: center;
+    @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
+    border-bottom: 2px solid $mainColorGreen;
+    padding: 10px 5px;
+  }
+
+  .p-knowledge__tbody-head {
+    vertical-align: middle;
+    @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    border-bottom: 2px solid $mainColorGreen;
+    padding: 15px 5px;
+
+    
+  }
+
+  .p-knowledge__tbody-data {
+    @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
+    border-bottom: 2px solid $bgColorLightGray;
+    padding: 15px 5px;
+
+    &.is-center {
+      vertical-align: middle;
+    }
+  }
+
+  .p-knowledge__link {
+    display: block;
+    padding-left: 15px;
+    position: relative;
+    transition: $common-transition;
+
+    &::before {
+      content: '';
+      display: block;
+      clip-path: polygon(100% 50%, 0 0, 0 100%);
+      width: 8px;
+      height: 12px;
+      background-color: $mainColorBlue;
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
+
+    @include pc() {
+      &:hover {
+        color: $mainColorBlue;
+      }
+    }
+  }
+}
