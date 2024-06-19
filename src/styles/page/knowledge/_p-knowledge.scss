@@ -6,6 +6,33 @@
     margin-top: 40px;
   }
 
+  .p-knowledge__filter {
+    display: flex;
+    align-items: center;
+    gap: 0 15px;
+  }
+
+  .p-knowledge__filter-label {
+    @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
+    pointer-events: none;
+
+    @include sp() {
+      font-size: 1.5rem;
+    }
+  }
+
+  .p-knowledge__filter-select {
+    @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-bold, $color:$textColorNormal, $lineHight: $line-height-row);
+    border: 2px solid $mainColorBlue;
+    border-radius: 6px;
+    background-color: $baseColor;
+    padding: 5px 10px;
+
+    @include sp() {
+      font-size: 1.5rem;
+    }
+  }
+
   .p-knowledge__t-title {
     text-align: center;
     @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);

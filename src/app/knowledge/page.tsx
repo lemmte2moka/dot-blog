@@ -76,7 +76,6 @@ const Knowledge: React.FC = () => {
                 ))}
               </select>
             </div>
-            
             <table className='p-knowledge__table'>
               <colgroup>
                 <col style={{ width: '25%' }} />
@@ -113,7 +112,6 @@ const Knowledge: React.FC = () => {
           </div>
         </section>
         
-        <pre>{JSON.stringify(data, null, 2)}</pre>
       </main>
     </div>
   )
