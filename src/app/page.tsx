@@ -2,6 +2,7 @@ import Mv from '../component/pages/top/Mv';
 import PickUp from '../component/pages/top/PickUp';
 import Blog from '../component/pages/top/Blog';
 import About from '../component/pages/top/About';
+import Knowledge from '../component/pages/top/Knowledge';
 import { getArticles } from '../hooks/newt';
 
 export default async function Top() {
@@ -15,6 +16,7 @@ export default async function Top() {
         <PickUp obj={articles} />
         <Blog obj={articles} />
         <About />
+        <Knowledge />
       </main>
     </div>
   )

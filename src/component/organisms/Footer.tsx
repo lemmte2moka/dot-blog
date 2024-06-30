@@ -29,6 +29,9 @@ export default function Footer() {
             <li className="l-footer__nav-item">
               <Link href="/about/" className="l-footer__nav-link">ABOUT</Link>
             </li>
+            <li className="l-footer__nav-item">
+              <Link href="/knowledge/" className="l-footer__nav-link">KNOWLEDGE</Link>
+            </li>
           </ul>
           <p className="l-footer__copyright"><small className="l-footer__copyright-text">Copyright &copy; 2024 All Rights Reserved.</small></p>
         </div>

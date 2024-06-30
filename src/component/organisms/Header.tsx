@@ -29,6 +29,11 @@ export default function Header() {
                 ABOUT
               </Link>
             </li>
+            <li className="l-header__nav-item">
+              <Link href="/knowledge/" className="l-header__nav-link">
+                KNOWLEDGE
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
