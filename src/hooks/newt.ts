@@ -1,49 +1,12 @@
 import { createClient } from 'newt-client-js';
 import { cache } from 'react';
+import { Article } from '../types';
 
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID + '',
   token: process.env.NEWT_CDN_API_TOKEN + '',
   apiType: 'cdn',
 });
-interface SnsItem {
-  _id: string;
-  snsLink: string;
-}
-interface Article {
-  _id: string;
-  pickup: boolean;
-  title: string;
-  date: string;
-  category: string;
-  body: string;
-  slug: string;
-  _sys: {
-    createdAt: string;
-    updatedAt: string;
-    customOrder: number;
-    raw: {
-      createdAt: string;
-      updatedAt: string;
-      firstPublishedAt: string;
-      publishedAt: string;
-    }
-  };
-  thumb: {
-    _id: string;
-    altText: string;
-    description: string;
-    fileName: string;
-    fileSize: number;
-    fileType: string;
-    height: number;
-    metadata: object; // 必要に応じて修正
-    src: string;
-    title: string;
-    width: number;
-  };
-  sns: SnsItem[]; // 必要に応じて修正
-}
 
 export const getArticles = cache(async () => {
   const { items } = await client.getContents<Article>({

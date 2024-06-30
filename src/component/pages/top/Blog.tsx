@@ -4,41 +4,7 @@ import Button from '../../atoms/Button';
 import Bubble from '../../templates/Bubble';
 import Image from "next/image";
 import Link from "next/link";
-
-// Article型の定義
-interface Article {
-  _id: string;
-  pickup: boolean;
-  title: string;
-  date: string;
-  category: string;
-  body: string;
-  _sys: {
-    createdAt: string;
-    updatedAt: string;
-    customOrder: number;
-    raw: {
-      createdAt: string;
-      updatedAt: string;
-      firstPublishedAt: string;
-      publishedAt: string;
-    }
-  };
-  thumb: {
-    _id: string;
-    altText: string;
-    description: string;
-    fileName: string;
-    fileSize: number;
-    fileType: string;
-    height: number;
-    metadata: object; // 必要に応じて修正
-    src: string;
-    title: string;
-    width: number;
-  };
-  sns: object[]; // 必要に応じて修正
-}
+import { Article } from '../../../types/';
 
 interface Props {
   obj: Article[];
@@ -101,7 +67,7 @@ const Blog: React.FC<Props> = ({ obj }) => {
           <ul className='p-top-blog__list'>
             {pickUpItems.map(items => (
               <li className='p-top-blog__item' key={items._id}>
-                <Link href={'/blog/page/?id='+items._id+''} className="p-top-blog__link l-media-link__link">
+                <Link href={`/blog/${items.slug}/`} className="p-top-blog__link l-media-link__link">
                   <p className='p-top-blog__media l-media-link__media'>
                     <Image
                       src={items.thumb.src}

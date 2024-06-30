@@ -5,6 +5,7 @@ import Link from "next/link";
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react';
 import { DotButton, useDotButton } from './EmblaCarouselDotButton';
+import { Article } from '../../../types/';
 import {
   PrevButton,
   NextButton,
@@ -14,41 +15,6 @@ import {
 type PropType = {
   slides: number[];
   options?: EmblaOptionsType
-}
-
-// Article型の定義
-interface Article {
-  _id: string;
-  pickup: boolean;
-  title: string;
-  date: string;
-  category: string;
-  body: string;
-  _sys: {
-    createdAt: string;
-    updatedAt: string;
-    customOrder: number;
-    raw: {
-      createdAt: string;
-      updatedAt: string;
-      firstPublishedAt: string;
-      publishedAt: string;
-    }
-  };
-  thumb: {
-    _id: string;
-    altText: string;
-    description: string;
-    fileName: string;
-    fileSize: number;
-    fileType: string;
-    height: number;
-    metadata: object; // 必要に応じて修正
-    src: string;
-    title: string;
-    width: number;
-  };
-  sns: object[]; // 必要に応じて修正
 }
 
 interface Props {
@@ -119,7 +85,7 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
           <ul className='p-top-pickup__list embla__container'>
             {pickUpItems.map(items => (
               <li className='p-top-pickup__item embla__slide' key={items._id}>
-                <Link href={'/blog/page/?id='+items._id+''} className="p-top-pickup__link l-media-link__link">
+                <Link href={`/blog/${items.slug}/`} className="p-top-pickup__link l-media-link__link">
                   <p className='p-top-pickup__media l-media-link__media'>
                     <Image
                       src={items.thumb.src}

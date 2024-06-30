@@ -3,42 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import ReactPaginate from 'react-paginate';
 import Image from "next/image";
 import Link from "next/link";
-
-// Article型の定義
-interface Article {
-  _id: string;
-  pickup: boolean;
-  title: string;
-  date: string;
-  category: string;
-  body: string;
-  slug: string;
-  _sys: {
-    createdAt: string;
-    updatedAt: string;
-    customOrder: number;
-    raw: {
-      createdAt: string;
-      updatedAt: string;
-      firstPublishedAt: string;
-      publishedAt: string;
-    }
-  };
-  thumb: {
-    _id: string;
-    altText: string;
-    description: string;
-    fileName: string;
-    fileSize: number;
-    fileType: string;
-    height: number;
-    metadata: object; // 必要に応じて修正
-    src: string;
-    title: string;
-    width: number;
-  };
-  sns: object[]; // 必要に応じて修正
-}
+import { Article } from '../../../types'
 
 interface Props {
   obj: Article[];

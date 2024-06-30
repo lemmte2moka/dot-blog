@@ -90,3 +90,42 @@ export interface ApiResponse {
   message: string;
   data: NotionData;
 }
+
+// blogItems
+export interface Article {
+  _id: string;
+  pickup: boolean;
+  title: string;
+  date: string;
+  category: string;
+  body: string;
+  slug: string;
+  _sys: {
+    createdAt: string;
+    updatedAt: string;
+    customOrder: number;
+    raw: {
+      createdAt: string;
+      updatedAt: string;
+      firstPublishedAt: string;
+      publishedAt: string;
+    }
+  };
+  thumb: {
+    _id: string;
+    altText: string;
+    description: string;
+    fileName: string;
+    fileSize: number;
+    fileType: string;
+    height: number;
+    metadata: object; // 必要に応じて修正
+    src: string;
+    title: string;
+    width: number;
+  };
+  sns: {
+    _id: string;
+    snsLink: string;
+  }
+}
