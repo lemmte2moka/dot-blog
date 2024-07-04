@@ -1,0 +1,9 @@
+@use './../mixin' as *;
+
+.u-color--black {
+  color: $textColorNormal;
+}
+
+.u-color--bold-black {
+  color: $textColorBold;
+}

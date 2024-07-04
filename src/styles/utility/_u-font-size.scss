@@ -1,0 +1,15 @@
+@use './../mixin' as *;
+
+@for $i from 10 through 60 {
+  .u-font-size#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+@include sp() {
+  @for $i from 10 through 60 {
+    .u-font-size#{$i}--sp {
+      font-size: #{$i}px;
+    }
+  }
+}

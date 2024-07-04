@@ -20,8 +20,8 @@ const About = () => {
               <Image
                 src="/images/top/img_football.svg"
                 alt=""
-                width="373"
-                height="373"
+                width="300"
+                height="300"
                 className="p-top-about__media-img"
                 priority
               >
@@ -31,8 +31,8 @@ const About = () => {
               <Image
                 src="/images/top/img_game.svg"
                 alt=""
-                width="373"
-                height="373"
+                width="300"
+                height="300"
                 className="p-top-about__media-img"
                 priority
               >
@@ -42,8 +42,8 @@ const About = () => {
               <Image
                 src="/images/top/img_fashion.svg"
                 alt=""
-                width="373"
-                height="373"
+                width="300"
+                height="300"
                 className="p-top-about__media-img is-first"
                 priority
               >
@@ -53,8 +53,8 @@ const About = () => {
               <Image
                 src="/images/top/img_engineer.svg"
                 alt=""
-                width="373"
-                height="373"
+                width="300"
+                height="300"
                 className="p-top-about__media-img is-first"
                 priority
               >

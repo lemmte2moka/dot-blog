@@ -10,6 +10,10 @@
     padding-bottom: 30px;
   }
 
+  .l-footer__top {
+    position: relative;
+  }
+
   .l-footer__inner {
     max-width: 1280px;
     padding-left: 40px;
@@ -73,6 +77,21 @@
         &::after {
           transform: scale(1, 1);
         }
+      }
+    }
+  }
+
+  .l-footer__button {
+    @include font($size:2.8rem, $family:$font-oswald, $wight:$font-bold, $color:$baseColor, $lineHight: 1);
+    position: absolute;
+    bottom: -72px;
+    right: 40px;
+    transition: $common-transition;
+
+    @include pc() {
+      &:hover {
+        
+        letter-spacing: 0.08em;
       }
     }
   }

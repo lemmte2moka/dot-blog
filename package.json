@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "newt-client-js": "^3.3.0",
-    "next": "14.0.4",
+    "next": "^14.2.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@kuma-ui/core": "^1.5.7",
+    "@kuma-ui/next-plugin": "^1.3.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

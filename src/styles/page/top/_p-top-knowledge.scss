@@ -30,4 +30,40 @@
       }
     }
   }
+
+  .p-top-knowledge__button {
+    .l-button__wrapper {
+      @include sp() {
+        justify-content: center;
+      }
+    }
+    
+  }
+
+  .p-top-knowledge__contents {
+    display: flex;
+    gap: 0 40px;
+    margin-top: 50px;
+    @include sp() {
+      flex-direction: column;
+      gap: 40px 0;
+      margin-top: 40px;
+    }
+  }
+
+  .p-top-knowledge__aside {
+    width: calc(30% - 20px);
+
+    @include sp() {
+      width: 100%;
+    }
+  }
+
+  .p-top-knowledge__item {
+    width: calc(70% - 20px);
+
+    @include sp() {
+      width: 100%;
+    }
+  }
 }
