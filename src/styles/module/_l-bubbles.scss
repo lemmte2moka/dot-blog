@@ -26,6 +26,12 @@
     top: 0;
     right: -400px;
     z-index: -1;
+    transform: scale(0);
+    &.is-visible {
+      transform: scale(1);
+      animation-duration: 1s;
+      animation-name: bubblein;
+    }
 
     @include sp() {
       width: 450px;
@@ -52,6 +58,13 @@
     bottom: 0;
     left: -90px;
     z-index: -1;
+    transform: scale(0);
+
+    &.is-visible {
+      animation-duration: 1s;
+      animation-name: bubblein;
+      transform: scale(1);
+    }
 
     @include sp() {
       width: 300px;
@@ -66,5 +79,19 @@
       background-color: $mainColorBlue;
       opacity: 0.4;
     }
+  }
+}
+
+@keyframes bubblein {
+  from {
+    transform: scale(0);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

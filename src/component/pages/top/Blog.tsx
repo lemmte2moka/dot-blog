@@ -5,6 +5,8 @@ import Bubble from '../../templates/Bubble';
 import Image from "next/image";
 import Link from "next/link";
 import { Article } from '../../../types/';
+import FadeIn from '../../atoms/FadeIn';
+import TextShuffle from '../../atoms/TextShuffle';
 
 interface Props {
   obj: Article[];
@@ -59,34 +61,38 @@ const Blog: React.FC<Props> = ({ obj }) => {
   return (
     <section className='p-top-blog'>
       <div className='l-container'>
-        <h2 className='p-top-blog__heading l-heading'>
-          <span className='l-heading--en'>BOLG</span>
-          <span className='l-heading--ja'>ブログ</span>
-        </h2>
-        <div className='p-top-blog__contents l-media-link'>
-          <ul className='p-top-blog__list'>
-            {pickUpItems.map(items => (
-              <li className='p-top-blog__item' key={items._id}>
-                <Link href={`/blog/${items.slug}/`} className="p-top-blog__link l-media-link__link">
-                  <p className='p-top-blog__media l-media-link__media'>
-                    <Image
-                      src={items.thumb.src}
-                      alt={items.thumb.altText}
-                      width={width}
-                      height={height}
-                      className="p-top-blog__thumb l-media-link__img"
-                      priority
-                    />
-                  </p>
-                  <p className={`p-top-blog__tag ${getClassForCategory(items.category)} l-media-link__tag`}><span className='p-top-blog__tag-text l-media-link__tag-text'>{items.category}</span></p>
-                  <p className='p-top-blog__title l-media-link__title'>{items.title}</p>
-                </Link>
-              </li>
-            ))
-            }
-          </ul>
-          <Button {...{href: '/blog/', subText:'MORE', text: 'BLOG', position: 'center', specialClass: '' }} />
-        </div>
+        <FadeIn>
+          <h2 className='p-top-blog__heading l-heading'>
+            <span className='l-heading--en'><TextShuffle>BOLG</TextShuffle></span>
+            <span className='l-heading--ja'><TextShuffle delay="0.5s">ブログ</TextShuffle></span>
+          </h2>
+        </FadeIn>
+        <FadeIn direction="up" delay="0.5s">
+          <div className='p-top-blog__contents l-media-link'>
+            <ul className='p-top-blog__list'>
+              {pickUpItems.map(items => (
+                <li className='p-top-blog__item' key={items._id}>
+                  <Link href={`/blog/${items.slug}/`} className="p-top-blog__link l-media-link__link">
+                    <p className='p-top-blog__media l-media-link__media'>
+                      <Image
+                        src={items.thumb.src}
+                        alt={items.thumb.altText}
+                        width={width}
+                        height={height}
+                        className="p-top-blog__thumb l-media-link__img"
+                        priority
+                      />
+                    </p>
+                    <p className={`p-top-blog__tag ${getClassForCategory(items.category)} l-media-link__tag`}><span className='p-top-blog__tag-text l-media-link__tag-text'>{items.category}</span></p>
+                    <p className='p-top-blog__title l-media-link__title'>{items.title}</p>
+                  </Link>
+                </li>
+              ))
+              }
+            </ul>
+            <FadeIn><Button {...{href: '/blog/', subText:'MORE', text: 'BLOG', position: 'center', specialClass: '' }} /></FadeIn>
+          </div>
+        </FadeIn>
       </div>
       <Bubble {...setBubble} />
     </section>

@@ -6,6 +6,8 @@ import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react';
 import { DotButton, useDotButton } from './EmblaCarouselDotButton';
 import { Article } from '../../../types/';
+import FadeIn from '../../atoms/FadeIn';
+import TextShuffle from '../../atoms/TextShuffle';
 import {
   PrevButton,
   NextButton,
@@ -27,8 +29,7 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
   const {
     prevBtnDisabled,
@@ -80,36 +81,44 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
   return (
     <section className='p-top-pickup'>
       <div className='l-container'>
-        <h2 className='p-top-pickup__heading'>PICK UP</h2>
-        <div className='embla p-top-pickup__slider l-media-link' ref={emblaRef}>
-          <ul className='p-top-pickup__list embla__container'>
-            {pickUpItems.map(items => (
-              <li className='p-top-pickup__item embla__slide' key={items._id}>
-                <Link href={`/blog/${items.slug}/`} className="p-top-pickup__link l-media-link__link">
-                  <p className='p-top-pickup__media l-media-link__media'>
-                    <Image
-                      src={items.thumb.src}
-                      alt={items.thumb.altText}
-                      width={width}
-                      height={height}
-                      className="p-top-pickup__thumb l-media-link__img"
-                      priority
-                    />
-                  </p>
-                  <p className={`p-top-pickup__tag ${getClassForCategory(items.category)} l-media-link__tag`}><span className='p-top-pickup__tag-text l-media-link__tag-text'>{items.category}</span></p>
-                  <p className='p-top-pickup__title l-media-link__title'>{items.title}</p>
-                </Link>
-              </li>
-            ))
-            }
-          </ul>
-        </div>
-        <div className="embla__controls">
-          <div className="embla__buttons">
-            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          <h2 className='p-top-pickup__heading'>
+            <TextShuffle delay="2s">
+              PICK UP
+            </TextShuffle>
+          </h2>
+        <FadeIn direction="up" delay="2.5s">
+          <div className='embla p-top-pickup__slider l-media-link' ref={emblaRef}>
+            <ul className='p-top-pickup__list embla__container'>
+              {pickUpItems.map(items => (
+                <li className='p-top-pickup__item embla__slide' key={items._id}>
+                  <Link href={`/blog/${items.slug}/`} className="p-top-pickup__link l-media-link__link">
+                    <p className='p-top-pickup__media l-media-link__media'>
+                      <Image
+                        src={items.thumb.src}
+                        alt={items.thumb.altText}
+                        width={width}
+                        height={height}
+                        className="p-top-pickup__thumb l-media-link__img"
+                        priority
+                      />
+                    </p>
+                    <p className={`p-top-pickup__tag ${getClassForCategory(items.category)} l-media-link__tag`}><span className='p-top-pickup__tag-text l-media-link__tag-text'>{items.category}</span></p>
+                    <p className='p-top-pickup__title l-media-link__title'>{items.title}</p>
+                  </Link>
+                </li>
+              ))
+              }
+            </ul>
           </div>
-        </div>
+        </FadeIn>
+        <FadeIn>
+          <div className="embla__controls">
+            <div className="embla__buttons">
+              <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+              <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   )

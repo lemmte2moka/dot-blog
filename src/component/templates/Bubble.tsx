@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 interface Bubbles {
   mainColor: string;
   subColor: string;
@@ -11,6 +12,18 @@ interface Bubbles {
 
 const Bubble: React.FC<Bubbles> = ({ mainColor, subColor, topPc='', topSp='', bottomPc='', bottomSp='' }) => {
   const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const ref = useIntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    {
+      threshold: 0.1,
+    }
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,12 +53,11 @@ const Bubble: React.FC<Bubbles> = ({ mainColor, subColor, topPc='', topSp='', bo
     <>
       <div className="l-bubble" style={styles}>
         <div className="l-bubble__main-wrapper">
-          <div className={`l-bubble__main is-${mainColor}`}></div>
+          <div ref={ref} className={`l-bubble__main is-${mainColor} ${isVisible ? 'is-visible' : ''}`}></div>
         </div>
-        <div className={`l-bubble__sub is-${subColor}`}></div>
+        <div ref={ref} className={`l-bubble__sub is-${subColor} ${isVisible ? 'is-visible' : ''}`}></div>
       </div>
     </>
-    
   );
 }
 
