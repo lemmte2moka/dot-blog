@@ -124,8 +124,8 @@ export interface Article {
     title: string;
     width: number;
   };
-  sns: {
+  sns: Array<{
     _id: string;
     snsLink: string;
-  }
+  }>;
 }

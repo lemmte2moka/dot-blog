@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from '../../../component/atoms/Button';
 import RelationItems from '../../../component/pages/blog/RelationItems';
+import type { Article } from '../../../types/';
 
 type Props = {
   params: {
@@ -12,10 +13,10 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const articles = await getArticles()
-  return articles.map((article) => ({
+  const articles = await getArticles();
+  return articles.map((article: Article) => ({
     slug: article.slug,
-  }))
+  }));
 }
 export const dynamicParams = false
 
@@ -33,11 +34,10 @@ export default async function Article({ params }: Props) {
   const { slug } = params
   const article = await getArticleBySlug(slug);
   const relationArticle = await getArticles();
-  // console.log(article)
   if (!article) return
 
   const date: Date = new Date(article._sys.createdAt);
-  const deteString:string = date.toLocaleDateString('ja-JP', {
+  const dateString:string = date.toLocaleDateString('ja-JP', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -72,14 +72,13 @@ export default async function Article({ params }: Props) {
         <h1 className='p-article__title'>{article.title}</h1>
         <div className='p-article__addition'>
           <div className='p-article__date-tag'>
-            <p className='p-article__date'>{deteString}</p>
+            <p className='p-article__date'>{dateString}</p>
             <p className={`p-article__tag ${getClassForCategory(article.category)}`}><span className='p-article__tag-text'>{article.category}</span></p>
           </div>
           <ul className='p-article__sns-list'>
-            {article.sns.map(items => (
-              <li className='p-article__sns-item' key={article.sns[0]._id} dangerouslySetInnerHTML={{ __html: article.sns[0].snsLink }}></li>
-              )
-            )}
+            {article.sns.map(item => (
+              <li className='p-article__sns-item' key={item._id} dangerouslySetInnerHTML={{ __html: item.snsLink }}></li>
+            ))}
           </ul>
         </div>
         <div className='p-article__body'>
