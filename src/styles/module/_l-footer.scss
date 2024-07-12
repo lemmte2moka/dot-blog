@@ -94,6 +94,11 @@
         letter-spacing: 0.08em;
       }
     }
+
+    @include sp() {
+      bottom: -63px;
+    right: 20px;
+    }
   }
 
   .l-footer__bottom {

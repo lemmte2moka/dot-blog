@@ -4,10 +4,6 @@
   opacity: 0;
   transition: opacity 1s ease-out, transform 1s ease-out;
 
-  &.l-fadeInVisible {
-    opacity: 1;
-  }
-
   &.fade-in-left {
     transform: translateX(-40px);
   }
@@ -24,13 +20,17 @@
     transform: translateY(-40px);
   }
 
-  
-  &.l-fadeInVisible.fade-in-up,
-  &.l-fadeInVisible.fade-in-down {
-    transform: translateY(0);
-  }
-  &.l-fadeInVisible.fade-in-left,
-  &.l-fadeInVisible.fade-in-right {
-    transform: translateX(0);
+  &.l-fadeInVisible {
+    opacity: 1;
+
+    &.fade-in-left,
+    &.fade-in-right {
+      transform: translateX(0);
+    }
+
+    &.fade-in-up,
+    &.fade-in-down {
+      transform: translateY(0);
+    }
   }
 }
