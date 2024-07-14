@@ -25,8 +25,9 @@
       @include sp() {
         width: 90px;
         height: 90px;
-        top: -30px;
+        top: initial;
         left: -14px;
+        bottom: -6px;
       }
     }
   }
@@ -73,6 +74,13 @@
     height: auto;
     aspect-ratio: 1/1;
     position: relative;
+    transform: scale(0);
+
+    &.is-visible {
+      animation-duration: 1s;
+      animation-name: bubblein;
+      transform: scale(1);
+    }
 
     @include sp() {
       width: 80%;
@@ -132,5 +140,19 @@
         left: -70px;
       }
     }
+  }
+}
+
+@keyframes bubblein {
+  from {
+    transform: scale(0);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

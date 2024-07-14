@@ -15,11 +15,11 @@ export default async function Knowledge() {
         </FadeIn>
         <div className='p-top-knowledge__contents'>
           <div className='p-top-knowledge__aside'>
-          <FadeIn delay="1s"><Text {...{ text:'様々なソースから得た知見をナレッジとして蓄積させてます。<br>主にフロントエンドやデザインがメインで、趣味などの情報も掲載してます。', color:'normal', align:'left', props:'normal', pcSize:16, spSize:15 }} /></FadeIn>
-            <FadeIn delay="1.2s"><Button {...{href: '/knowledge/', subText:'MORE', text: 'KNOWLEDGE', position: 'left', specialClass: 'p-top-knowledge__button' }} /></FadeIn>
+            <FadeIn delay="0.8s"><Text {...{ text:'様々なソースから得た知見をナレッジとして蓄積させてます。<br>主にフロントエンドやデザインがメインで、趣味などの情報も掲載してます。', color:'normal', align:'left', props:'normal', pcSize:16, spSize:15 }} /></FadeIn>
+            <FadeIn delay="1s"><Button {...{href: '/knowledge/', subText:'MORE', text: 'KNOWLEDGE', position: 'left', specialClass: 'p-top-knowledge__button' }} /></FadeIn>
           </div>
           <div className='p-top-knowledge__item'>
-          <FadeIn delay="1.5s">
+            <FadeIn delay="1.2s">
               <KnowledgeItems />
             </FadeIn>
           </div>

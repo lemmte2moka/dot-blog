@@ -1,4 +1,5 @@
 import Bubble from './Bubble';
+import TextShuffle from '../atoms/TextShuffle';
 interface Title {
   title: string;
 }
@@ -9,7 +10,7 @@ const Mv: React.FC<Title> = ({ title }) => {
       <Bubble {...setBubble} />
       <div className='l-container'>
         <div className='l-mv__heading'>
-          <h1 className='l-heading--h1'>{title}</h1>
+          <h1 className='l-heading--h1'><TextShuffle delay="0.8s">{title}</TextShuffle></h1>
         </div>
       </div>
     </section>

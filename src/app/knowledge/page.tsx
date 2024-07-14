@@ -3,13 +3,28 @@ import React, { useEffect, useState } from 'react';
 import Mv from '../../component/templates/Mv';
 import { useNotionFetch } from '../../hooks/notionFetch';
 import { NotionData, Page } from '../../types';
+import Text from '../../component/atoms/Text';
+import FadeIn from '../../component/atoms/FadeIn';
 
 const Knowledge: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState<string>('');
   const { data, error, loading } = useNotionFetch();
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div>
+      <main className="p-knowledge">
+        <Mv title={'KNOWLEDGE'} />
+        <section className='l-section--lv2'>
+          <div className='l-container'>
+            <h2 className='l-heading--h2'>Notionのナレッジ</h2>
+            <Text {...{ text:'ナレッジ読み込み中', color:'normal', align:'left', props:'normal', pcSize:16, spSize:15 }} />
+          </div>
+        </section>
+        
+      </main>
+    </div>
+    );
   }
 
   if (error) {
@@ -64,7 +79,7 @@ const Knowledge: React.FC = () => {
     <div>
       <main className="p-knowledge">
         <Mv title={'KNOWLEDGE'} />
-        <section className='l-section--lv2'>
+        <section className='l-section--lv2 u-overflow--hidden'>
           <div className='l-container'>
             <h2 className='l-heading--h2'>Notionのナレッジ</h2>
             <div className='p-knowledge__filter'>
@@ -76,39 +91,42 @@ const Knowledge: React.FC = () => {
                 ))}
               </select>
             </div>
-            <table className='p-knowledge__table'>
-              <colgroup>
-                <col style={{ width: '25%' }} />
-                <col style={{ width: '15%' }} />
-                <col style={{ width: '35%' }} />
-                <col style={{ width: '25%' }} />
-              </colgroup>
-              <thead className='p-knowledge__thead'>
-                <tr>
-                  <th className='p-knowledge__t-title' scope='col'>タイトル</th>
-                  <th className='p-knowledge__t-title' scope='col'>タグ</th>
-                  <th className='p-knowledge__t-title' scope='col'>説明</th>
-                  <th className='p-knowledge__t-title' scope='col'>参考</th>
-                </tr>
-              </thead>
-              <tbody className='p-knowledge__tbody'>
-                {filteredDataItems.map((item) => (
-                  <tr key={item.id}>
-                    <th scope='row' className='p-knowledge__tbody-head'>{item.properties.title.title[0]?.plain_text}</th>
-                    <td className='p-knowledge__tbody-data is-center'><p className={`l-tag ${getClassForCategory(item.properties.tag.multi_select[0]?.name)}`}><span className='l-tag__text'>{item.properties.tag.multi_select.map(tag => tag.name).join(', ')}</span></p></td>
-                    <td className='p-knowledge__tbody-data'>{item.properties.description.rich_text[0]?.plain_text}</td>
-                    <td className='p-knowledge__tbody-data'>
-                      {item.properties.url.url === null ?
-                        '' :
-                        <a href={item.properties.url.url} target="_blank" rel="noopener noreferrer" className='p-knowledge__link'>
-                          {item.properties.pagetitle.rich_text[0]?.plain_text}
-                        </a>
-                      }
-                    </td>
+            <div className='p-knowledge__wrapper'>
+              <table className='p-knowledge__table'>
+                <colgroup>
+                  <col style={{ width: '25%' }} />
+                  <col style={{ width: '15%' }} />
+                  <col style={{ width: '35%' }} />
+                  <col style={{ width: '25%' }} />
+                </colgroup>
+                <thead className='p-knowledge__thead'>
+                  <tr>
+                    <th className='p-knowledge__t-title' scope='col'>タイトル</th>
+                    <th className='p-knowledge__t-title' scope='col'>タグ</th>
+                    <th className='p-knowledge__t-title' scope='col'>説明</th>
+                    <th className='p-knowledge__t-title' scope='col'>参考</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className='p-knowledge__tbody'>
+                  {filteredDataItems.map((item) => (
+                    <tr key={item.id}>
+                      <th scope='row' className='p-knowledge__tbody-head'>{item.properties.title.title[0]?.plain_text}</th>
+                      <td className='p-knowledge__tbody-data is-center'><p className={`l-tag ${getClassForCategory(item.properties.tag.multi_select[0]?.name)}`}><span className='l-tag__text'>{item.properties.tag.multi_select.map(tag => tag.name).join(', ')}</span></p></td>
+                      <td className='p-knowledge__tbody-data'>{item.properties.description.rich_text[0]?.plain_text}</td>
+                      <td className='p-knowledge__tbody-data'>
+                        {item.properties.url.url === null ?
+                          '' :
+                          <a href={item.properties.url.url} target="_blank" rel="noopener noreferrer" className='p-knowledge__link'>
+                            {item.properties.pagetitle.rich_text[0]?.plain_text}
+                          </a>
+                        }
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            
           </div>
         </section>
         

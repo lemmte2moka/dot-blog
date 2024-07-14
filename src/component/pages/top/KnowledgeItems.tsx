@@ -2,7 +2,7 @@
 import { useNotionFetch } from '../../../hooks/notionFetch';
 import { Page } from '../../../types';
 import { css } from '@kuma-ui/core';
-import { breakpoints } from './../../templates/Breakpoints';
+import Text from '../../atoms/Text';
 const styles = {
   table: css`
     width: 100%;
@@ -16,10 +16,9 @@ const styles = {
     padding: 10px 5px;
   `,
   tbodyHead: css`
-    vertical-align: middle;
     font-size: 1.6rem;
     font-family: 'Noto Sans', sans-serif;
-    font-weight: medium;
+    font-weight: 500;
     color: #333;
     border-bottom: 2px solid green;
     padding: 15px 5px;
@@ -27,7 +26,7 @@ const styles = {
   tbodyData: css`
     font-size: 1.6rem;
     font-family: 'Noto Sans', sans-serif;
-    font-weight: medium;
+    font-weight: 500;
     color: #333;
     border-bottom: 2px solid lightgray;
     padding: 15px 5px;
@@ -59,7 +58,7 @@ const styles = {
 export default function KnowledgeItems() {
   const { data, error, loading } = useNotionFetch();
   if (loading) {
-    return <p>Loading...</p>;
+    return <Text {...{ text:'ナレッジ読み込み中', color:'normal', align:'left', props:'normal', pcSize:16, spSize:15 }} />;
   }
 
   if (error) {

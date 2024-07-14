@@ -82,11 +82,11 @@ const PickUp: React.FC<Props> = ({ obj }, props) => {
     <section className='p-top-pickup'>
       <div className='l-container'>
           <h2 className='p-top-pickup__heading'>
-            <TextShuffle delay="2s">
+            <TextShuffle delay="1.5s">
               PICK UP
             </TextShuffle>
           </h2>
-        <FadeIn direction="up" delay="2.5s">
+        <FadeIn direction="up" delay="2s">
           <div className='embla p-top-pickup__slider l-media-link' ref={emblaRef}>
             <ul className='p-top-pickup__list embla__container'>
               {pickUpItems.map(items => (

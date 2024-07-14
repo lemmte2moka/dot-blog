@@ -4,6 +4,26 @@
   .p-knowledge__table {
     width: 100%;
     margin-top: 40px;
+
+    @include sp() {
+      width: 960px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .p-knowledge__wrapper {
+    @include sp() {
+      width: 100vw;
+      margin: 0 calc(50% - 50vw);
+      overflow: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar{
+        display: none;
+      }
+    }
   }
 
   .p-knowledge__filter {
@@ -38,6 +58,10 @@
     @include font($size:1.6rem, $family:$font-noto-sans, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
     border-bottom: 2px solid $mainColorGreen;
     padding: 10px 5px;
+
+    @include sp() {
+      font-size: 1.5rem;
+    }
   }
 
   .p-knowledge__tbody-head {
@@ -46,7 +70,9 @@
     border-bottom: 2px solid $mainColorGreen;
     padding: 15px 5px;
 
-    
+    @include sp() {
+      font-size: 1.5rem;
+    }
   }
 
   .p-knowledge__tbody-data {
@@ -56,6 +82,10 @@
 
     &.is-center {
       vertical-align: middle;
+    }
+
+    @include sp() {
+      font-size: 1.5rem;
     }
   }
 

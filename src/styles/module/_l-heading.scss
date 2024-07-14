@@ -12,9 +12,11 @@
   position: relative;
 
   @include sp() {
+    flex-direction: column-reverse;
+    align-items: flex-start;
     gap: 0 10px;
     border-bottom: 8px solid $textColorBold;
-    padding-left: 65px;
+    padding-left: 70px;
     padding-right: 30px;
   }
 }
