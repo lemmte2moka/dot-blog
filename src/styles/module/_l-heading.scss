@@ -37,11 +37,17 @@
 
 .l-heading--h1 {
   @include font($size:6rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: 1);
+  @include sp() {
+    font-size: 4.2rem;
+  }
 }
 
 .l-heading--h2 {
   @include font($size:4rem, $family:$font-noto-sans, $wight:$font-medium, $color:$textColorBold, $lineHight: $line-height-row);
 
+  @include sp() {
+    font-size: 3.2rem;
+  }
   & + * {
     margin-top: 50px;
   }
