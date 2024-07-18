@@ -6,6 +6,7 @@
   .p-top-pickup__heading {
     @include font($size:4rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
     @include sp() {
+      font-family: $font-oswald;
       font-size: 3.2rem;
     }
   }

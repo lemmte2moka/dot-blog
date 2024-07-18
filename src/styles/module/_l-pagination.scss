@@ -40,5 +40,9 @@
         color: $baseColor;
       }
     }
+
+    @include sp() {
+      font-family: $font-oswald;
+    }
   }
 }

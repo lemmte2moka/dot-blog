@@ -1,11 +1,8 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import '../styles/style.scss'
+import type { Metadata } from 'next';
+import './globals.css';
+import '../styles/style.scss';
 import Header from "../component/organisms/Header";
 import Footer from "../component/organisms/Footer";
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'dot-Blog',

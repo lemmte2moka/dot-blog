@@ -20,6 +20,7 @@
   .p-top-mv__heading-main {
     @include font($size:7rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: $line-height-row);
     @include sp() {
+      font-family: $font-oswald;
       font-size: 5rem;
     }
   }
@@ -30,6 +31,7 @@
     margin-top: 8px;
 
     @include sp() {
+      font-family: $font-oswald;
       font-size: 1.6rem;
       margin-top: 5px;
     }

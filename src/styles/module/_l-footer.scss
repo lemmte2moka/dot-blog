@@ -31,6 +31,7 @@
     text-align: center;
     @include font($size:4rem, $family:$font-oswald, $wight:$font-bold, $color:$baseColor, $lineHight: $line-height-row);
     @include sp() {
+      font-family: $font-oswald;
       text-align: left;
       font-size: 3rem;
     }
@@ -96,8 +97,9 @@
     }
 
     @include sp() {
+      font-family: $font-oswald;
       bottom: -63px;
-    right: 20px;
+      right: 20px;
     }
   }
 
@@ -129,6 +131,7 @@
     transition: $common-transition;
 
     @include sp() {
+      font-family: $font-oswald;
       font-size: 1.8rem;
     }
 
@@ -164,6 +167,7 @@
   .l-footer__copyright-text {
     @include font($size:1.4rem, $wight:$font-regular, $family:$font-oswald, $color:$baseColor, $lineHight: $line-height-row);
     @include sp() {
+      font-family: $font-oswald;
       font-size: 1.2rem;
     }
   }

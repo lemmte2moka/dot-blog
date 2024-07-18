@@ -24,6 +24,7 @@
 .l-heading--en {
   @include font($size:6rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: 1);
   @include sp() {
+    font-family: $font-oswald;
     font-size: 4.6rem;
   }
 }
@@ -39,6 +40,7 @@
   @include font($size:6rem, $family:$font-oswald, $wight:$font-bold, $color:$textColorBold, $lineHight: 1);
   @include sp() {
     font-size: 4.2rem;
+    font-family: $font-oswald;
   }
 }
 

@@ -87,6 +87,11 @@
     border-bottom: 1px solid $textColorBold;
     position: relative;
     z-index: 1;
+
+    @include sp() {
+      font-size: 1.3rem;
+      font-family: $font-oswald;
+    }
   }
 
   .l-button__label {
@@ -95,5 +100,9 @@
     margin-top: 5px;
     position: relative;
     z-index: 1;
+    @include sp() {
+      font-family: $font-oswald;
+      font-size: 1.5rem;
+    }
   }
 }

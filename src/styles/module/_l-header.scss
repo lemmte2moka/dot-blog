@@ -62,6 +62,7 @@
     position: relative;
 
     @include sp() {
+      font-family: $font-oswald;
       font-size: 1.6rem;
     }
 
